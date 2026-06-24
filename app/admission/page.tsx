@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AdmissionPageContent from "@/components/AdmissionPageContent";
 import { GraduationCap } from "lucide-react";
 
