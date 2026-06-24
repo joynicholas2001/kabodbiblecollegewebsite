@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #664c36;
+    --color-secondary: #331c08;
+    --color-accent: #ffd3ac;
+    --color-background: #f7f4f1;
+    --color-surface: #ccbeb1;
+    --color-text-primary: #331c08;
+    --color-text-secondary: #664c36;
+    /* Compatibility aliases used by existing components */
+    --color-primary-dark: var(--color-primary);
+    --color-primary-medium: var(--color-accent);
+    --color-soft-bg: #fff6ec;
+    --color-light-bg: var(--color-background);
+    --color-card: var(--color-surface);
+    --color-body: var(--color-text-primary);
+    --color-muted: var(--color-text-secondary);
+    --color-cta-text: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-light text-brand-purple-dark antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[8px]
+           bg-brand-purple text-white font-semibold text-sm
+           border border-transparent
+           transition-all duration-300 ease-in-out
+           hover:bg-brand-purple-dark active:brightness-90
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-brand-light
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[8px]
+           border border-brand-accent text-brand-purple-dark font-semibold text-sm bg-brand-accent
+           transition-all duration-300 ease-in-out
+           hover:bg-brand-gold-dark
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2 focus:ring-offset-brand-light
+           active:scale-[0.98];
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[8px]
+           border border-brand-soft text-white font-semibold text-sm bg-transparent
+           transition-all duration-300 ease-in-out
+           hover:bg-white/10
+           focus:outline-none focus:ring-2 focus:ring-brand-soft focus:ring-offset-2 focus:ring-offset-transparent
+           active:scale-[0.98];
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-brand-purple mb-4 font-heading;
+  }
+
+  .section-subheading {
+    @apply text-lg text-brand-muted max-w-2xl;
+  }
+
+  .card {
+    @apply bg-brand-card rounded-xl border-0 shadow-card hover:shadow-card-hover
+           transition-all duration-300 ease-in-out overflow-hidden;
+  }
+
+  .gold-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-1
+           after:w-16 after:bg-brand-gold after:rounded-full;
+  }
+}
+
+@layer base {
+  a {
+    @apply text-brand-accent transition-colors duration-300 ease-in-out;
+  }
+
+  a:hover {
+    @apply underline decoration-2 underline-offset-2 text-brand-gold-dark;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply rounded-[10px] border border-brand-card bg-brand-light text-brand-purple-dark px-3 py-2
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-brand-accent;
+  }
+}
+
+/* Hero Swiper: pagination bullets */
+.hero-swiper-pagination .swiper-pagination-bullet,
+.hero-swiper-pagination .hero-swiper-bullet {
+  width: 0.625rem;
+  height: 0.625rem;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.hero-swiper-pagination .swiper-pagination-bullet-active,
+.hero-swiper-pagination .hero-swiper-bullet-active {
+  background: var(--color-accent);
+  width: 2rem;
+  border-radius: 9999px;
+}
+
+.font-telugu {
+  font-family: var(--font-telugu), sans-serif;
+}
